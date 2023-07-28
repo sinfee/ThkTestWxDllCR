@@ -54,75 +54,75 @@ TbaInitEnc* g_InitEnv = nullptr;
 wxDialog* dlg = nullptr;
 ProToolkitDllHandle libhandle;
 bool g_bInitByme = false;
-
-extern "C" int user_initialize(int argc, char* argv[], char* ver, char* build, wchar_t* errbuf)
-{
-	ProPath text_path;
-	TdcToolkitApplTextPathGet(text_path);
-
-	if (wxTheApp == nullptr)
-	{
-		g_bInitByme = wxInitialize(argc, argv);
-	}
-	//if (g_InitEnv == nullptr)
-	//	g_InitEnv = new TbaInitEnc();
-	//if (g_InitEnv == nullptr)
-	//	return -1;
-	//bool bInitok = g_InitEnv->InitEnc(argc, argv);
-	//if (!bInitok)
-	//{
-	//	delete g_InitEnv;
-	//	g_InitEnv = nullptr;
-	//	return -2;
-	//}
-//	wxEntryStart(argc, argv);
-	// wxInitialize(argc,argv);
-	//wxDISABLE_DEBUG_SUPPORT();
-	//wxInitialize(argc,argv);
-	//wxInitialize(argc,argv);
-
-	//ProError err_ret;
-	//ProPath err_str;
-
-	//ProError	err = ProToolkitDllLoad(L"testwxdllcrd1", "D:\\devworks\\prj-test\\ThkTestWxDll\\bin\\DbgLibWF5x64\\testwxdllcrd1.dll",
-	//		"D:\\devworks\\prj-test\\ThkTestWxDll\\bin\\DbgLibWF5x64",
-	//		PRO_B_TRUE,
-	//		&libhandle, &err_ret, err_str);
-	//if (g_initWx.IsOk())
-	{
-		dlg = new wxDialog(nullptr, wxID_ANY, wxT("测试对话框"));
-		dlg->Show();
-	}
-//	wxTheApp
-	return 0;
-}
-
-extern "C" void user_terminate()
-{
-	if (dlg != nullptr)
-		delete dlg;
-	dlg = nullptr;
-	if (wxTheApp != nullptr && g_bInitByme)
-		wxUninitialize();
-	g_bInitByme = false;
-
-	//if(libhandle != nullptr)
-	//	ProToolkitDllUnload(libhandle);
-	////if (dlg != nullptr)
-	////	delete dlg;
-	//	//wxUninitialize();
-	//	//wxUninitialize();
-	//	wxUninitialize();
-		// 
-//	wxEntryCleanup();
-	//if (g_InitEnv != nullptr)
-	//{
-	//	g_InitEnv->FreeEnc();
-	//	delete g_InitEnv;
-	//	g_InitEnv = nullptr;
-	//}
-}
-
+//
+//extern "C" int user_initialize(int argc, char* argv[], char* ver, char* build, wchar_t* errbuf)
+//{
+//	ProPath text_path;
+//	TdcToolkitApplTextPathGet(text_path);
+//
+//	if (wxTheApp == nullptr)
+//	{
+//		g_bInitByme = wxInitialize(argc, argv);
+//	}
+//	//if (g_InitEnv == nullptr)
+//	//	g_InitEnv = new TbaInitEnc();
+//	//if (g_InitEnv == nullptr)
+//	//	return -1;
+//	//bool bInitok = g_InitEnv->InitEnc(argc, argv);
+//	//if (!bInitok)
+//	//{
+//	//	delete g_InitEnv;
+//	//	g_InitEnv = nullptr;
+//	//	return -2;
+//	//}
+////	wxEntryStart(argc, argv);
+//	// wxInitialize(argc,argv);
+//	//wxDISABLE_DEBUG_SUPPORT();
+//	//wxInitialize(argc,argv);
+//	//wxInitialize(argc,argv);
+//
+//	//ProError err_ret;
+//	//ProPath err_str;
+//
+//	//ProError	err = ProToolkitDllLoad(L"testwxdllcrd1", "D:\\devworks\\prj-test\\ThkTestWxDll\\bin\\DbgLibWF5x64\\testwxdllcrd1.dll",
+//	//		"D:\\devworks\\prj-test\\ThkTestWxDll\\bin\\DbgLibWF5x64",
+//	//		PRO_B_TRUE,
+//	//		&libhandle, &err_ret, err_str);
+//	//if (g_initWx.IsOk())
+//	{
+//		dlg = new wxDialog(nullptr, wxID_ANY, wxT("测试对话框"));
+//		dlg->Show();
+//	}
+////	wxTheApp
+//	return 0;
+//}
+//
+//extern "C" void user_terminate()
+//{
+//	if (dlg != nullptr)
+//		delete dlg;
+//	dlg = nullptr;
+//	if (wxTheApp != nullptr && g_bInitByme)
+//		wxUninitialize();
+//	g_bInitByme = false;
+//
+//	//if(libhandle != nullptr)
+//	//	ProToolkitDllUnload(libhandle);
+//	////if (dlg != nullptr)
+//	////	delete dlg;
+//	//	//wxUninitialize();
+//	//	//wxUninitialize();
+//	//	wxUninitialize();
+//		// 
+////	wxEntryCleanup();
+//	//if (g_InitEnv != nullptr)
+//	//{
+//	//	g_InitEnv->FreeEnc();
+//	//	delete g_InitEnv;
+//	//	g_InitEnv = nullptr;
+//	//}
+//}
+//
 
 #endif
 

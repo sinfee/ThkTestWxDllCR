@@ -119,57 +119,58 @@ extern "C" __declspec(dllexport) bool FreewxEncWithArg(int argc,char* argv[])
 #include "ProToolkitDll.h"
 ProToolkitDllHandle libhandle=nullptr;
 wxDialog* dlg = nullptr;
-extern "C" int user_initialize(int argc, char* argv[], char* ver, char* build, wchar_t* errbuf)
-{
-	ProPath text_path;
-	TdcToolkitApplTextPathGet(text_path);
-	ProPath app_path;
-	TdcToolkitApplExecPathGet(app_path);
-	wxFileName strFile = wxFileName(app_path);
-	
-	//if (wxTheApp == nullptr)
-	//{
-	//	g_bInitByme = wxInitialize(argc, argv);
-	//}
-
-	//test
-	ProError err_ret;
-	ProPath err_str;
-	wchar_t pnm[] = L"testwxdllcrd1";
-#ifdef _DEBUG
-	char pth[] = "testwxdllcrd.dll";
-#else
-	char pth[] = "testwxdllcr.dll";
-#endif
-	wxString strPath = strFile.GetPath(true)+wxString(pth);
-	char pth2[] = "D:\\devworks\\prj-test\\ThkTestWxDll\\bin\\";
-	char* appdir = new char[strPath.size() + 1];  // +1 for the null terminator
-	std::strcpy(appdir, strPath.c_str());
-	ProError	err = TdcToolkitDllLoad(pnm, appdir,
-		pth2,
-		PRO_B_TRUE,
-		&libhandle, &err_ret, err_str);
-	delete[] appdir;
-	dlg = new wxDialog(nullptr, wxID_ANY, wxT("测试对话框"));
-	dlg->Show();
-	//
-	return 0;
-
-}
-
-extern "C" void user_terminate()
-{
-	if (libhandle != nullptr)
-		TdcToolkitDllUnload(libhandle);
-	libhandle = nullptr;
-
-	if (dlg != nullptr)
-		delete dlg;
-	dlg = nullptr;
-	//if (wxTheApp != nullptr && g_bInitByme)
-	//	wxUninitialize();
-	//g_bInitByme = false;
-}
+//
+//extern "C" int user_initialize(int argc, char* argv[], char* ver, char* build, wchar_t* errbuf)
+//{
+//	ProPath text_path;
+//	TdcToolkitApplTextPathGet(text_path);
+//	ProPath app_path;
+//	TdcToolkitApplExecPathGet(app_path);
+//	wxFileName strFile = wxFileName(app_path);
+//	
+//	//if (wxTheApp == nullptr)
+//	//{
+//	//	g_bInitByme = wxInitialize(argc, argv);
+//	//}
+//
+//	//test
+//	ProError err_ret;
+//	ProPath err_str;
+//	wchar_t pnm[] = L"testwxdllcrd1";
+//#ifdef _DEBUG
+//	char pth[] = "testwxdllcrd.dll";
+//#else
+//	char pth[] = "testwxdllcr.dll";
+//#endif
+//	wxString strPath = strFile.GetPath(true)+wxString(pth);
+//	char pth2[] = "D:\\devworks\\prj-test\\ThkTestWxDll\\bin\\";
+//	char* appdir = new char[strPath.size() + 1];  // +1 for the null terminator
+//	std::strcpy(appdir, strPath.c_str());
+//	ProError	err = TdcToolkitDllLoad(pnm, appdir,
+//		pth2,
+//		PRO_B_TRUE,
+//		&libhandle, &err_ret, err_str);
+//	delete[] appdir;
+//	dlg = new wxDialog(nullptr, wxID_ANY, wxT("测试对话框"));
+//	dlg->Show();
+//	//
+//	return 0;
+//
+//}
+//
+//extern "C" void user_terminate()
+//{
+//	if (libhandle != nullptr)
+//		TdcToolkitDllUnload(libhandle);
+//	libhandle = nullptr;
+//
+//	if (dlg != nullptr)
+//		delete dlg;
+//	dlg = nullptr;
+//	//if (wxTheApp != nullptr && g_bInitByme)
+//	//	wxUninitialize();
+//	//g_bInitByme = false;
+//}
 //#else
 
 
