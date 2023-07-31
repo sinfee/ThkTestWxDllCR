@@ -46,14 +46,14 @@ TbaInitEnc* g_InitEnv = nullptr;
 //{
 //	return 0;
 //}
-
-#ifdef THK_CREO_DLL
-
 #include "ProUtil.h"
 #include "ProSizeConst.h"
 wxDialog* dlg = nullptr;
 ProToolkitDllHandle libhandle;
 bool g_bInitByme = false;
+
+#ifdef THK_CREO_DLL
+
 //
 //extern "C" int user_initialize(int argc, char* argv[], char* ver, char* build, wchar_t* errbuf)
 //{
@@ -159,9 +159,12 @@ extern "C"  __declspec(dllexport) char* GetThkModName()
 	return ptr;
 }
 
-extern "C" __declspec(dllexport) int GetThkModVer()
+extern "C" __declspec(dllexport) char* GetThkModVer()
 {
-	return PROE_VER;
+	const char str[] = "1.0";
+	char* ptr = const_cast<char*>(str);
+	return ptr;
+	//return PROE_VER;
 }
 
 extern "C" __declspec(dllexport) char* GetThkModInfo()

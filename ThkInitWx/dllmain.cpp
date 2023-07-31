@@ -261,9 +261,13 @@ extern "C"  __declspec(dllexport) char* GetThkModName()
 	return ptr;
 }
 
-extern "C" __declspec(dllexport) int GetThkModVer()
+extern "C" __declspec(dllexport) char* GetThkModVer()
 {
-	return PROE_VER;
+	//return PROE_VER;
+	const char str[] = "1.0";
+	char* ptr = const_cast<char*>(str);
+	return ptr;
+
 }
 
 extern "C" __declspec(dllexport) char* GetThkModInfo()

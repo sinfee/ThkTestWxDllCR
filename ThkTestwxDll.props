@@ -7,12 +7,9 @@
     <Import Condition="Exists('$(Thk_Props_Dir)\thk_wx.props')" Project="$(Thk_Props_Dir)\thk_wx.props" />
     <Import Condition="!Exists('$(Thk_Props_Dir)\thk_wx.props') and Exists('props\thk_wx.props')" Project="props\thk_wx.props" />
     <Import Condition="!Exists('$(Thk_Props_Dir)\thk_wx.props') and !Exists('props\thk_wx.props')" Project="d:\develop\props\thk_wx.props" />
-    <Import Condition="$(PROE_VER) != '' and Exists('$(Thk_Props_Dir)\thk_ptb.props')" Project="$(Thk_Props_Dir)\thk_ptb.props" />
-    <Import Condition="$(PROE_VER) != '' and !Exists('$(Thk_Props_Dir)\thk_ptb.props') and Exists('thk_ptb.props')" Project="thk_ptb.props" />
-    <Import Condition="$(PROE_VER) != '' and !Exists('$(Thk_Props_Dir)\thk_ptb.props') and !Exists('thk_ptb.props')" Project="d:\develop\props\thk_ptb.props" />
-    <Import Condition="$(ZW3D_VER) != '' and Exists('$(Thk_Props_Dir)\thk_zw3d.props')" Project="$(Thk_Props_Dir)\thk_zw3d.props" />
-    <Import Condition="$(ZW3D_VER) != '' and !Exists('$(Thk_Props_Dir)\thk_zw3d.props') and Exists('thk_zw3d.props')" Project="thk_zw3d.props" />
-    <Import Condition="$(ZW3D_VER) != '' and !Exists('$(Thk_Props_Dir)\thk_zw3d.props') and !Exists('thk_zw3d.props')" Project="d:\develop\props\thk_zw3d.props" />
+    <Import Condition="Exists('$(Thk_Props_Dir)\thk_ptb.props')" Project="$(Thk_Props_Dir)\thk_ptb.props" />
+    <Import Condition="!Exists('$(Thk_Props_Dir)\thk_ptb.props') and Exists('thk_ptb.props')" Project="thk_ptb.props" />
+    <Import Condition="!Exists('$(Thk_Props_Dir)\thk_ptb.props') and !Exists('thk_ptb.props')" Project="d:\develop\props\thk_ptb.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
     <THK_CREO_DLL Condition="$(PROE_VER) != '' and $([System.Convert]::ToInt32('$(PROE_VER)')) &gt; 0">true</THK_CREO_DLL>

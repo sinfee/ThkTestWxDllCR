@@ -8,4 +8,6 @@
 #pragma message ("----------___cplusplus is bigger than 201103!---------")
 #endif
 
-#include "ThkPtbInc.h"
+#define THK_PRJ_NAME "ThkTestWxDll"
+
+#include "ThkCrWrapInc.h"
